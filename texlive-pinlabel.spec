@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /macros/latex/contrib/pinlabel
+# catalog-date 2008-08-23 00:06:02 +0200
+# catalog-license lppl
+# catalog-version 1.1
 Name:		texlive-pinlabel
 Version:	1.1
 Release:	1
@@ -57,6 +63,7 @@ object labelled.
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/put2.pdf
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/screen.eps
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/screen.pdf
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -67,3 +74,5 @@ object labelled.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
