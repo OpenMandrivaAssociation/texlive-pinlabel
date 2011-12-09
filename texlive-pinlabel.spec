@@ -1,11 +1,11 @@
-# revision 15878
+# revision 24769
 # category Package
 # catalog-ctan /macros/latex/contrib/pinlabel
-# catalog-date 2008-08-23 00:06:02 +0200
+# catalog-date 2011-12-05 18:34:00 +0100
 # catalog-license lppl
-# catalog-version 1.1
+# catalog-version 1.2
 Name:		texlive-pinlabel
-Version:	1.1
+Version:	1.2
 Release:	1
 Summary:	A TeX labelling package
 Group:		Publishing
@@ -17,8 +17,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 Pinlabel is a labelling package for attaching perfectly
@@ -30,39 +28,33 @@ placed with automatic and consistent spacing relative to the
 object labelled.
 
 %pre
-    %_texmf_mktexlsr_pre
+    %{_sbindir}/texlive.post
 
 %post
-    %_texmf_mktexlsr_post
+    %{_sbindir}/texlive.post
 
 %preun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
+	%{_sbindir}/texlive.post
     fi
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
 %files
 %{_texmfdistdir}/tex/latex/pinlabel/pinlabel.sty
-%doc %{_texmfdistdir}/doc/latex/pinlabel/README
 %doc %{_texmfdistdir}/doc/latex/pinlabel/pinlabdoc.pdf
-%doc %{_texmfdistdir}/doc/latex/pinlabel/src/fig3.eps
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/fig3.pdf
-%doc %{_texmfdistdir}/doc/latex/pinlabel/src/fig6.eps
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/fig6.pdf
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/gtpart.cls
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/pinlabdoc.tex
-%doc %{_texmfdistdir}/doc/latex/pinlabel/src/put.eps
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/put.fig
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/put.pdf
-%doc %{_texmfdistdir}/doc/latex/pinlabel/src/put2.eps
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/put2.fig
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/put2.pdf
-%doc %{_texmfdistdir}/doc/latex/pinlabel/src/screen.eps
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/screen.pdf
 %doc %{_tlpkgobjdir}/*.tlpobj
 
