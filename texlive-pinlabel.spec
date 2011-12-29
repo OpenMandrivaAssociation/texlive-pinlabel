@@ -27,16 +27,8 @@ coordinates derived from GhostView (or gv) and labels are
 placed with automatic and consistent spacing relative to the
 object labelled.
 
-%pre
-    %{_sbindir}/texlive.post
-
 %post
     %{_sbindir}/texlive.post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-    fi
 
 %postun
     if [ $1 -eq 0 ]; then
@@ -56,7 +48,6 @@ object labelled.
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/put2.fig
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/put2.pdf
 %doc %{_texmfdistdir}/doc/latex/pinlabel/src/screen.pdf
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -67,5 +58,3 @@ object labelled.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
