@@ -1,18 +1,12 @@
-# revision 24769
-# category Package
-# catalog-ctan /macros/latex/contrib/pinlabel
-# catalog-date 2011-12-05 18:34:00 +0100
-# catalog-license lppl
-# catalog-version 1.2
 Name:		texlive-pinlabel
-Version:	1.2
-Release:	12
+Version:	24769
+Release:	1
 Summary:	A TeX labelling package
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/pinlabel
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pinlabel.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pinlabel.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pinlabel.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pinlabel.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -28,12 +22,12 @@ placed with automatic and consistent spacing relative to the
 object labelled.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -51,28 +45,10 @@ object labelled.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.2-2
-+ Revision: 754906
-- Rebuild to reduce used resources
-
-* Fri Dec 09 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.2-1
-+ Revision: 739868
-- texlive-pinlabel
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.1-1
-+ Revision: 719262
-- texlive-pinlabel
-- texlive-pinlabel
-- texlive-pinlabel
-- texlive-pinlabel
-
