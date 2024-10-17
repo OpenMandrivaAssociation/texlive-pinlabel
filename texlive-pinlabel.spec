@@ -3,7 +3,7 @@ Version:	24769
 Release:	2
 Summary:	A TeX labelling package
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/pinlabel
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/pinlabel
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pinlabel.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pinlabel.doc.r%{version}.tar.xz
